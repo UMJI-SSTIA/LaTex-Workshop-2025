@@ -2,7 +2,7 @@
 # LaTeX Workshop Worksheet2
 
 > Audience: **Beginners** progressing to **advanced** topics  
-> Duration: **~2 hours**  
+> Duration: **2 hours**  
 > Format: **Hands-on**, with mini-exercises throughout  
 
 ---
@@ -10,24 +10,24 @@
 ## 0) Quick Start Checklist
 
 - ✅ Have a **TeX distribution** installed (TeX Live / MiKTeX / MacTeX) *or* an **Overleaf** account.  
-- ✅ A text editor (TeXstudio, Texmaker, VS Code + LaTeX Workshop, etc.).  
+- ✅ Log on to SJTU's LaTeX online editor:[latex.sjtu.edu.cn](https://latex.sjtu.edu.cn/ "SJTU online latex editor")
+	- The account and the password are that of your JAaccount
 - ✅ Create a new project / folder and ensure you can **compile** to PDF.
-- [latex.sjtu.edu.cn](https://latex.sjtu.edu.cn/ "SJTU online latex editor")
 ---
 
 ## 1) What is LaTeX (and why use it)?
 
-LaTeX is a markup language and typesetting system. You write plain text with commands describing *structure* and *formatting*, then **compile** it into professionally typeset PDFs.
+LaTeX is a markup language and typesetting system. You write plain text with commands describing *structure* and *formatting*, then **compile** it into professionally typeset PDFs. Latex is commonly used at GC and in essay writing (although you do not need to use this for VY100)
 
 **Why LaTeX?**
-- **Consistency & automation**: automatic numbering, cross-references, ToC, LoF, LoT.
+- **Consistency & automation**: automatic numbering, cross-references, 
 - **Complex documents**: sections, figures, tables, footnotes, bibliography.
 - **Separation of content/style**: focus on writing; change styles later.
 - **Portable plain text**: version-control friendly.
 - **High-quality typography**: great defaults for kerning, hyphenation, spacing.
 
 > **Exercise 1.1 (2–3 min)**  
-> Decide: use **Overleaf** (no install) or a **local** setup (TeX Live / MiKTeX + editor). Create a blank project/file `main.tex`.
+> Decide: use **Overleaf** (no install) or a **local** setup (TeX Live / MiKTeX + editor). Create a project named `LaTeX Workshop`.
 
 ---
 
@@ -56,7 +56,6 @@ Hello, LaTeX world!
 - **Preamble** (before `\begin{document}`): load packages, define commands, set metadata.
 - **Body** (between `\begin{document}` and `\end{document}`): your content.
 - `\maketitle`: prints title/author/date defined in the preamble.
-- Compile twice if cross-references or ToC look like `??`.
 
 > **Exercise 2.1 (3–4 min)**  
 > Paste the skeleton, replace `Your Name`, change the title, **compile** and confirm you get a PDF.
@@ -72,7 +71,11 @@ Hello, LaTeX world!
 
 **Inline emphasis**
 ```latex
-\textbf{bold}, \textit{italic}, \underline{underline}, \texttt{monospace}, \textsc{Small Caps}
+\textbf{bold}
+\textit{italic} 
+\underline{underline} 
+\texttt{monospace} 
+\textsc{Small Caps}
 \emph{emphasis that toggles within italic contexts}
 ```
 
@@ -320,43 +323,38 @@ This is \bluetext{blue text}.
 
 ---
 
-## 14) Bibliographies and Citations (overview only; optional hands‑on)
+## 14) Bibliographies and Citations (using `thebibliography`)
 
-Two popular approaches:
-
-### (A) BibTeX (classic)
-1. Create `refs.bib` with entries:
-   ```bibtex
-   @book{knuth1984,
-     author    = {Donald E. Knuth},
-     title     = {The TeXbook},
-     year      = {1984},
-     publisher = {Addison-Wesley}
-   }
-   ```
-2. In your `.tex`:
-   ```latex
-   \bibliographystyle{plain}
-   \bibliography{refs} % refs.bib
-   ```
-3. Cite in text: `\cite{knuth1984}`. Compile sequence: LaTeX → BibTeX → LaTeX → LaTeX.
-
-### (B) biblatex + biber (modern)
+For short documents or beginners, the simplest way to include references is to use the **`thebibliography` environment** directly in your `.tex` file. This avoids the need for external `.bib` files or running extra tools.
 ```latex
-\usepackage[backend=biber,style=numeric]{biblatex}
-\addbibresource{refs.bib}
+\begin{thebibliography}{9}
 
-% ... in body ...
-According to \cite{knuth1984}, ...
+\bibitem{knuth1984}
+Donald E. Knuth.
+\textit{The TeXbook}.
+Addison-Wesley, 1984.
 
-\printbibliography
+\bibitem{lamport1994}
+Leslie Lamport.
+\textit{\LaTeX: A Document Preparation System}.
+2nd edition, Addison-Wesley, 1994.
+
+\end{thebibliography}
 ```
 
-> **Exercise 14.1 (optional, 5–8 min)**  
-> Create a `.bib` file with one entry, cite it once, and print the bibliography. Prefer Overleaf if you don’t want to manage the compile sequence locally.
+- `\begin{thebibliography}{9}`: the argument (`9` here) sets the width of the label (if you have up to 9 references). Use `99` if you expect more than 9 references, etc.
+    
+- Each reference begins with `\bibitem{key}`. The _key_ (like `knuth1984`) is what you’ll use inside `\cite{...}` in the main text.
+    
+- The body of each `\bibitem` entry contains the formatted reference text.
 
----
+Use `\cite{key}` in your text:
 
+```latex
+According to \cite{knuth1984}, LaTeX builds on TeX.
+```
+
+This will appear as: “According to [1], LaTeX builds on TeX.” — with [1] corresponding to the first bibliography entry.
 ## 15) Beamer Slides (bonus peek)
 
 Create slides using the `beamer` class:
@@ -380,21 +378,6 @@ Useful when you want LaTeX-styled presentations with overlays, themes, and consi
 - **Image not found**: check filename, path, and that you omitted the extension in `\includegraphics{...}` (LaTeX picks the right one).
 - **Table overruns page**: consider `tabularx`, `longtable`, or reduce column width / wrapping with `p{<width>}` columns.
 - **Use the community**: TeX StackExchange, CTAN, Overleaf docs.
-
----
-
-## 17) Capstone: Mini-Report (10–15 min)
-
-Create a 1–2 page mini-report that includes:
-- Title/author (`\maketitle`)
-- A `\tableofcontents`
-- At least **two sections** and **one subsection**
-- **Bold**, *italic*, and a **footnote**
-- An **itemize** or **enumerate** list
-- One **figure** or **table** with caption + label
-- At least **two cross-references** (`\ref` + `\pageref`)
-
-This consolidates everything you learned today.
 
 ---
 
