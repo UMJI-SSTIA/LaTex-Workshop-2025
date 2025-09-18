@@ -106,8 +106,6 @@ It’s important to use the right one depending on whether you want inline or di
   \nabla \cdot \vec{E} = \frac{\rho}{\varepsilon_0}
   \end{equation}
   ```
-  ```
-## <span style="color:#D35400;">📑 Official References</span>
 ### 4. Multi-line Alignment
 - **Syntax**: `align` (from **amsmath**)  
 - **Use**: Align multi-step derivations at `=` or other operators.  
