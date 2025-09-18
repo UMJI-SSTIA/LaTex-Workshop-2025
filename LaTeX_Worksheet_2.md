@@ -118,6 +118,16 @@ It’s important to use the right one depending on whether you want inline or di
 f(x) &= (x+1)^2 \\
      &= x^2 + 2x + 1
 \end{align}
+
+%or
+
+\begin{equation}
+\notag % no numbering
+	\begin{aligned}
+	f(x) &= (x+1)^2 \\
+	     &= x^2 + 2x + 1
+	\end{aligned} 
+\end{equation}
 ```
 
 
@@ -145,8 +155,6 @@ f(x) &= (x+1)^2 \\
      &= x^2 + 2x + 1
 \end{aligned}
 $$
-
-2. Use <span style="color:#AF7AC5;">`\label`</span> and <span style="color:#AF7AC5;">`\ref`</span>.
 
 ---
 
@@ -256,25 +264,64 @@ $$
 ---
 
 ### 3. Control spacing
-
-- Commands:
-    
-    - `\,` thin space
-        
-    - `\;` thick space
-        
-    - `\!` negative thin space
-        
-- Examples:
-    $$
-\int_0^1 x^2 \, \mathrm{d}x
-\{\, x \in \mathbb{R} \;|\; x>0 \,\}
+ 
+|Command|Width|Example|
+|---|---|---|
+|`\,`|thin space (1/6 quad)|`a\,b`|
+|`\:`|medium space (2/9 quad)|`a\:b`|
+|`\;`|thick space (5/18 quad)|`a\;b`|
+|`\!`|negative thin space (-1/6 quad)|`a\!b`|
+|`\quad`|1 em (width of “M”)|`a \quad b`|
+|`\qquad`|2 em|`a \qquad b`|
+1. **Multiplication**  
+   Prefer `\cdot` or thin space `\,` over implicit juxtaposition when variables are next to numbers.  
+$$
+2\,x \quad \text{or} \quad 2 \cdot x
 $$
 
-```latex
-\int_0^1 x^2 \, \mathrm{d}x
-\{\, x \in \mathbb{R} \;|\; x>0 \,\}
+   ```latex
+   2\,x \quad \text{or} \quad 2 \cdot x
 ```
+
+2. **Function Application**  
+    Always put a thin space after functions before arguments for clarity.
+    $$
+\sin\,x, \log\,n
+$$
+    
+    ```latex
+    \sin\,x, \log\,n
+    ```
+    
+3. **Fractions**  
+    Use small spaces around `\frac` if needed for readability.
+    $$
+\frac{a}{b}\,x
+$$
+    
+    ```latex
+    \frac{a}{b}\,x
+    ```
+    
+4. **Operators in Limits/Integrals**  
+    Add thin or medium space around `d` in integrals.
+    $$
+\int_0^1 f(x)\,dx
+$$
+    
+    ```latex
+    \int_0^1 f(x)\,dx
+    ```
+    
+5. **Negative Space**  
+    Use `\!` sparingly to reduce awkward gaps in products or superscripts.
+    $$
+x^{n\!+1}
+$$
+    
+    ```latex
+    x^{n\!+1}
+    ```
 
 To see more detailed information in section 7 of this webpage [latex_space](https://latex-tutorial.com/latex-space/)
 
@@ -315,6 +362,10 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 As shown in equation \eqref{eq:quadratic}, ...
 ```
 
+
+- `\ref{eq:quadratic}` → prints just the number: `1`.    
+- `\eqref{eq:quadratic}` → prints the number **with parentheses**: `(1)`.
+
 ---
 
 ## <span style="color:#7D6608;">Section 5: Recommended Tools</span>
@@ -339,9 +390,9 @@ For this workshop, you will only need a **basic Obsidian setup** to write and re
 ### 2. Installing Useful Plugins
 - Open **Settings → Community plugins → Browse**  
 - Recommended plugins for this workshop:
-  1. **Advanced Tables** – for better table editing.
-  2. **Obsidian MathJax Enhancer** (optional) – adds extra math environments like `align`.
-  3. **Templater** – for reusable LaTeX shortcuts (optional).
+  1. **Latex suite** - make typesetting LaTeX math as fast as handwriting.
+  2. **Advanced Tables** – for better table editing.
+  3. **Obsidian MathJax Enhancer** (optional) – adds extra math environments like `align`.
 
 > ⚠️ Make sure to **enable community plugins** in Settings first.
 
