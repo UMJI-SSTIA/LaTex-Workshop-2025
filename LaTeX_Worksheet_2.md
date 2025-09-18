@@ -57,7 +57,11 @@ $$
 \vec{v} = \begin{bmatrix} x \\ y \\ z \end{bmatrix}, \quad
   A = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
 $$
-
+- **Set operator**
+  < > \subset \supset \subseteq \supseteq
+- $$
+< > \quad \subset \quad \supset \quad \subseteq \quad \supseteq \quad \cup \quad \cap
+$$
 - **Special Symbols**  
   \alpha, \beta, \gamma, \delta, \theta, \infty, \forall, \exists, \nabla
 - $$
@@ -353,16 +357,17 @@ $\displaystyle \sum_{i=1}^n i$
     
 
 ```latex
-\begin{equation}\label{eq:quadratic}
+\begin{equation}
+\label{eq:problem1_quadratic}
 x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 \end{equation}
 
-As shown in equation \eqref{eq:quadratic}, ...
+As shown in equation \eqref{eq:problem1_quadratic}, ...
 ```
 
 
-- `\ref{eq:quadratic}` → prints just the number: `1`.    
-- `\eqref{eq:quadratic}` → prints the number **with parentheses**: `(1)`.
+- `\ref{eq:problem1_quadratic}` → prints just the number: `1`.    
+- `\eqref{eq:problem1_quadratic}` → prints the number **with parentheses**: `(1)`.
 
 ---
 
@@ -372,20 +377,20 @@ As shown in equation \eqref{eq:quadratic}, ...
 - [SJTULaTex](https://latex.sjtu.edu.cn/) — Online editor  
 - [Obsidian](https://obsidian.md/) — Markdown + MathJax  
 
-## 📝 Quick Obsidian Setup & LaTeX Tips
+### 📝 Quick Obsidian Setup & LaTeX Tips
 
 For this workshop, you will only need a **basic Obsidian setup** to write and render LaTeX formulas efficiently. We will cover this in ~5 minutes.
 
 ---
 
-### 1. Installing Obsidian
+#### 1. Installing Obsidian
 - Go to [https://obsidian.md](https://obsidian.md) and download the appropriate version for your OS.
 - Install and open Obsidian.
 - Create a new vault or open an existing one.
 
 ---
 
-### 2. Installing Useful Plugins
+#### 2. Installing Useful Plugins
 - Open **Settings → Community plugins → Browse**  
 - Recommended plugins for this workshop:
   1. **Latex suite** - make typesetting LaTeX math as fast as handwriting.
@@ -395,7 +400,7 @@ For this workshop, you will only need a **basic Obsidian setup** to write and re
 > ⚠️ Make sure to **enable community plugins** in Settings first.
 
 ---
-### 3. Quick LaTeX Shortcuts 
+#### 3. Quick LaTeX Shortcuts 
 
 Here are 10 commonly used LaTeX shortcuts for fast formula writing in Obsidian:
 
