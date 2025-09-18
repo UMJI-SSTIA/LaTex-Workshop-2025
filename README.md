@@ -3,7 +3,7 @@
 Welcome to the **LaTeX Workshop** organized by **GCInnovation+**!
 If you’ve ever wanted to make your papers, reports, or manuals look **professional and elegant**, this is the place to start.
 
-This repository contains materials, templates, and exercises for our **2-hour hands-on LaTeX workshop**. By the end, you’ll walk away with a **ready-to-use reusable template** and the confidence to typeset documents like a pro.
+This repository contains materials, templates, and exercises for our **2-hour hands-on LaTeX workshop**. 
 
 ---
 
