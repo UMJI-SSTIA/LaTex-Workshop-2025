@@ -117,8 +117,8 @@ It’s important to use the right one depending on whether you want inline or di
 
 ```latex
 \begin{align}
-f(x) &= (x+1)^2 \\
-     &= x^2 + 2x + 1
+f(x) &= (x+1)^2 &= ..\\
+     &= x^2 + 2x + 1 &= ..
 \end{align}
 
 %or
@@ -229,7 +229,7 @@ f(x) &= (x+1)^2 \\
 
 ```latex
 \begin{equation}
-\nonumber
+\nonumber %or \notag
 \begin{aligned}
 f(x) &= (x+1)^2 \\
      &= x^2 + 2x + 1
@@ -308,7 +308,7 @@ $$
 4. **Operators in Limits/Integrals**  
     Add thin or medium space around `d` in integrals.
     $$
-\int_0^1 f(x)\,dx
+\int_0^1 f(x)\,\mathrm{d}x
 $$
     
     ```latex
@@ -403,6 +403,7 @@ For this workshop, you will only need a **basic Obsidian setup** to write and re
 #### 3. Quick LaTeX Shortcuts 
 
 Here are 10 commonly used LaTeX shortcuts for fast formula writing in Obsidian:
+
 
 | Trigger | Output                              | Description                    |
 | ------- | ----------------------------------- | ------------------------------ |
